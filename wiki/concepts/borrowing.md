@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch04-understanding-ownership.md, raw/ch10-generics-traits-lifetimes.md]
+sources: [raw/ch04-understanding-ownership.md, raw/ch10-generics-traits-lifetimes.md, raw/ch15-smart-pointers.md]
 updated: 2026-10-22
 ---
 # Borrowing and references
@@ -11,6 +11,9 @@ A reference (`&T`) is an address that lets you use a value owned by someone else
 
 - At any time: either one mutable reference (`&mut T`) or any number of immutable references (`&T`).
 - References must always be valid. (src: [[ch04-understanding-ownership]])
+
+> [!warning] Conflict
+> ch4 presents these rules as errors caught by the compiler. ch15 shows that `RefCell<T>` enforces the same rules at runtime and panics on a violation (src: [[ch15-smart-pointers]]). Resolved: compile-time checking is Rust's default and still holds for `&`/`&mut`; the runtime variant is an opt-in for cases the conservative compiler rejects, see [[refcell-and-interior-mutability]]. The rules themselves do not change.
 
 Details:
 - References are immutable by default; mutation needs `&mut` and a `mut` variable (E0596 otherwise).
@@ -40,4 +43,4 @@ fn change(t: &mut String) { t.push_str(", world"); }
 
 ## Relations
 
-[[ownership]], [[lifetimes]], [[slices]] (a slice is a kind of reference), [[move-copy-clone]]. Dereference operator `*` is the inverse of `&` (details in later chapters).
+[[ownership]], [[lifetimes]], [[slices]] (a slice is a kind of reference), [[move-copy-clone]]. The dereference operator `*` follows a reference to its value; `assert_eq!(5, y)` with `y: &i32` fails (E0277) while `*y` works. Custom types can support `*` via `Deref`, see [[deref-and-deref-coercion]]. Interior mutability ([[refcell-and-interior-mutability]]) mutates behind an immutable value with runtime-checked borrows. (src: [[ch15-smart-pointers]])

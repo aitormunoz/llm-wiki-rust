@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch10-generics-traits-lifetimes.md]
+sources: [raw/ch10-generics-traits-lifetimes.md, raw/ch15-smart-pointers.md]
 updated: 2026-10-22
 ---
 # Traits
@@ -14,6 +14,7 @@ A trait defines functionality a type has and can share with other types: a group
 - **Orphan rule (coherence):** you can implement a trait on a type only if the trait or the type is local to your crate. `Summary` on `Vec<T>` is fine; `Display` on `Vec<T>` is not. It stops two crates implementing the same trait for the same type. (src: [[ch10-generics-traits-lifetimes]])
 - **Default implementations:** give a method a body in the trait; implementors keep it with an empty `impl Summary for X {}` or override it with the same syntax. Defaults may call other methods of the trait, even required ones. An overriding implementation cannot call the default.
 - **Blanket implementations:** implement a trait for every type meeting a bound, e.g. `impl<T: Display> ToString for T`, which is why `3.to_string()` works.
+- Standard-library traits that define smart-pointer behavior: `Deref`/`DerefMut` (customize `*`, enable deref coercion) and `Drop` (cleanup at scope end). See [[deref-and-deref-coercion]], [[drop]]. (src: [[ch15-smart-pointers]])
 - Traits can appear as parameters/returns with `impl Trait`; see [[trait-bounds]].
 
 ## Example
@@ -35,4 +36,4 @@ pub trait Summary {
 
 ## Relations
 
-[[trait-bounds]], [[generics]]. Trait objects (dynamic dispatch) come in chapter 18.
+[[trait-bounds]], [[generics]]. Trait objects (dynamic dispatch) come in chapter 18; a `Box<dyn Trait>` owns a value known only by its trait ([[box]]). A trait method taking `&self` can still record state via interior mutability ([[refcell-and-interior-mutability]]).

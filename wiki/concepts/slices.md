@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch04-understanding-ownership.md, raw/ch10-generics-traits-lifetimes.md]
+sources: [raw/ch04-understanding-ownership.md, raw/ch10-generics-traits-lifetimes.md, raw/ch15-smart-pointers.md]
 updated: 2026-10-22
 ---
 # Slices
@@ -13,7 +13,7 @@ A slice is a reference to a contiguous sequence of elements in a collection. It 
 - Indices must fall on UTF-8 character boundaries or the program panics. (src: [[ch04-understanding-ownership]])
 - String literals are `&str`, slices into the binary, which is why they are immutable.
 - Other slices: `&a[1..3]` of an array has type `&[i32]`.
-- Prefer `&str` over `&String` for parameters: it accepts `&String`, `&str` and literals via deref coercion (explained in a later chapter). (src: [[ch04-understanding-ownership]])
+- Prefer `&str` over `&String` for parameters: it accepts `&String`, `&str` and literals via deref coercion: `String` implements `Deref` returning `&str`, so `&String` is converted to `&str` at compile time with no cost. See [[deref-and-deref-coercion]]. (src: [[ch04-understanding-ownership]], [[ch15-smart-pointers]])
 
 ## Why slices
 
@@ -37,4 +37,4 @@ fn first_word(s: &str) -> &str {
 
 ## Relations
 
-[[borrowing]], [[ownership]], [[lifetime-elision]].
+[[borrowing]], [[ownership]], [[lifetime-elision]], [[deref-and-deref-coercion]].

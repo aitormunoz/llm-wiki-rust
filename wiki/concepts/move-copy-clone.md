@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch04-understanding-ownership.md]
+sources: [raw/ch04-understanding-ownership.md, raw/ch15-smart-pointers.md]
 updated: 2026-10-22
 ---
 # Move, Copy and Clone
@@ -15,7 +15,7 @@ Design consequence: Rust never automatically deep-copies, so automatic copying i
 
 ## Clone
 
-`s1.clone()` explicitly copies heap data too. A `clone` call signals possibly expensive arbitrary code. (src: [[ch04-understanding-ownership]])
+`s1.clone()` explicitly copies heap data too. A `clone` call signals possibly expensive arbitrary code. (src: [[ch04-understanding-ownership]]) Exception by convention: `Rc::clone(&a)` only increments a reference count and copies no data, so it is cheap; it is written `Rc::clone` rather than `a.clone()` to keep it visually distinct from deep copies. See [[rc]]. (src: [[ch15-smart-pointers]])
 
 ## Copy
 
@@ -35,4 +35,4 @@ let y = x;             // Copy: both valid
 
 ## Relations
 
-[[ownership]], [[stack-and-heap]], [[borrowing]].
+[[ownership]], [[stack-and-heap]], [[borrowing]], [[rc]], [[drop]].

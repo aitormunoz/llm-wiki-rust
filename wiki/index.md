@@ -4,6 +4,7 @@
 
 - [[ch04-understanding-ownership]] — TRPL ch4: ownership, borrowing and slices.
 - [[ch10-generics-traits-lifetimes]] — TRPL ch10: generics, traits and trait bounds, lifetimes.
+- [[ch15-smart-pointers]] — TRPL ch15: Box, Deref, Drop, Rc, RefCell, reference cycles and Weak.
 
 ## Concepts
 
@@ -18,5 +19,12 @@
 - [[trait-bounds]] — `impl Trait`, `T: A + B`, `where`, conditional methods.
 - [[lifetimes]] — reference validity, annotations, structs, `'static`, borrow checker.
 - [[lifetime-elision]] — the three rules that let you omit lifetime annotations.
+- [[smart-pointers]] — pointers with extra capabilities that usually own data; Box vs Rc vs RefCell comparison.
+- [[box]] — heap allocation, recursive types, large moves, trait objects.
+- [[deref-and-deref-coercion]] — the `Deref` trait, `*` operator, automatic `&T` to `&U` conversion.
+- [[drop]] — cleanup code at end of scope, reverse order, `std::mem::drop` for early cleanup.
+- [[rc]] — reference counting for multiple owners (single-threaded), `Rc::clone`, strong count.
+- [[refcell-and-interior-mutability]] — borrow rules checked at runtime, `borrow`/`borrow_mut`, `Rc<RefCell<T>>`.
+- [[reference-cycles-and-weak]] — leaks from `Rc` cycles, `Weak<T>`, `upgrade`, parent/child trees.
 
 ## Answers
