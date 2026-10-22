@@ -20,7 +20,7 @@ An older (2018-edition-era) version of the "References and Borrowing" section of
 ## Differences from the current chapter
 
 - Error output shows "borrow ends here" at the closing brace: borrows last to the end of the enclosing block (lexical scope), not to the last use. This is outdated; see the conflict callout in [[borrowing]].
-- The dangling-reference error suggests a `'static` lifetime (older compiler wording).
+- The dangling-reference error suggests a `'static` lifetime (the current ch4 still suggests it, with a caveat; see [[dangling-references]]).
 - Text says "a particular scope" for the one-`&mut` rule.
 
 ## Concept pages

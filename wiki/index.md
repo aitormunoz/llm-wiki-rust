@@ -14,6 +14,8 @@
 - [[stack-and-heap]] — how the two memory regions differ and why ownership targets the heap.
 - [[move-copy-clone]] — what assignment does: move, `Copy` for stack-only types, explicit `clone`.
 - [[borrowing]] — references, `&` vs `&mut` rules, data races, dangling references, old vs current scope rule.
+- [[dangling-references]] — references to freed or out-of-scope data; the compiler rejects them (E0106, E0515, E0597).
+- [[data-races]] — three conditions for a data race and how borrowing, `Mutex`, `Send`/`Sync` rule them out.
 - [[slices]] — `&str` and `&[T]`, references to contiguous sequences.
 - [[generics]] — type parameters on functions, structs, enums and methods.
 - [[monomorphization]] — how generics compile to concrete code with no runtime cost.

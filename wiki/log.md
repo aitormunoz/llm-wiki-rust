@@ -23,3 +23,9 @@
 ## [2026-10-22] lint | 6 issues
 - High: 1 stale claim (`'static` suggestion attributed only to older compiler output). Medium: 3 (truncated sentence in [[drop]], missing raw source in [[lifetimes]] frontmatter, missing concept pages). Low: 2 (uncited claims, ungrounded inference in [[borrowing]]).
 - No broken wikilinks, no orphan pages. Report only, no pages changed.
+
+## [2026-10-22] lint | fix: 4 issues resolved
+- High: corrected stale `'static` claim in [[borrowing]] (current ch4 also suggests it, with a caveat); aligned [[lifetimes]] and [[2018-ch04-02-references-and-borrowing]].
+- Medium: restored truncated sentence in [[drop]]; added missing raw sources to [[lifetimes]] frontmatter; created [[dangling-references]] and [[data-races]] (explained by the sources). Closures, trait objects and deadlocks not created: sources only forward-reference or mention them.
+- Updated: [[borrowing]], [[lifetimes]], [[drop]], [[ownership]], [[2018-ch04-02-references-and-borrowing]], [[index]], [[log]]
+- Skipped: low-severity citation sweep.

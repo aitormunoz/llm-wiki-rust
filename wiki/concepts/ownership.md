@@ -47,4 +47,4 @@ fn takes_ownership(some_string: String) {
 ## Common mistakes
 
 - Using a variable after it was moved (E0382 "borrow of moved value").
-- Assuming a reference's lifetime can outlive its owner (see dangling references in [[borrowing]]).
+- Assuming a reference's lifetime can outlive its owner (see [[dangling-references]]).

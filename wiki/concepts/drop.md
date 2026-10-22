@@ -13,7 +13,7 @@ The `Drop` trait lets you run custom code when a value goes out of scope, such a
 - Values drop in reverse order of creation. (src: [[ch15-smart-pointers]])
 - You cannot call `x.drop()` yourself (E0040): it would be called again at scope end, a double free. To drop early, call `std::mem::drop(x)` (in the prelude), which takes ownership. Useful for releasing a lock early.
 - Ownership guarantees `drop` runs exactly once and never on a value still in use.
-- `Rc<T>` decrements its count in its `Drop` impl ([[rc]]); `Box<T>` frees its heap memory in its; `MutexGuard` releases the lock in its (so a lock is held until the guard goes out of scope or is dropped, see [[mutex]]). (src: [[ch16-fearless-concurrency]])
+- `Rc<T>` decrements its count in its `Drop` impl ([[rc]]); `Box<T>` frees its heap memory in its `Drop` impl; `MutexGuard` releases the lock in its `Drop` impl (so a lock is held until the guard goes out of scope or is dropped, see [[mutex]]). (src: [[ch16-fearless-concurrency]])
 
 ## Example
 

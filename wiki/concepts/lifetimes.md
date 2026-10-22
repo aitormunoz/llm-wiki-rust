@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch10-generics-traits-lifetimes.md]
+sources: [raw/ch10-generics-traits-lifetimes.md, raw/ch04-understanding-ownership.md, raw/2018-ch04-02-references-and-borrowing.md]
 updated: 2026-10-22
 ---
 # Lifetimes
@@ -17,7 +17,7 @@ Every reference has a lifetime, the scope for which it is valid. Lifetimes are a
 - A returned reference must derive from a parameter. Returning a reference to a local fails (E0515); return an owned value instead.
 - Structs holding references need a lifetime on each: `struct ImportantExcerpt<'a> { part: &'a str }`. An instance cannot outlive the reference it holds.
 - In `impl`, declare lifetimes after `impl` and use them after the type name: `impl<'a> ImportantExcerpt<'a>`. Method signatures often need nothing more thanks to [[lifetime-elision]].
-- `'static`: the reference *can* live for the whole program; all string literals are `&'static str` (stored in the binary). Error messages suggesting `'static` usually signal a dangling reference or lifetime mismatch; fix that instead.
+- `'static`: the reference *can* live for the whole program; all string literals are `&'static str` (stored in the binary). Error messages suggesting `'static` usually come from attempting to create a dangling reference or a lifetime mismatch; fix that instead (src: [[ch10-generics-traits-lifetimes]]). The same suggestion appears in the ch4 `dangle` error, where the real fix is returning an owned value (src: [[ch04-understanding-ownership]], [[2018-ch04-02-references-and-borrowing]]). See [[dangling-references]].
 - Lifetime and type parameters share one list: `fn f<'a, T>(x: &'a str, ann: T) -> &'a str where T: Display`.
 
 ## Example
@@ -39,4 +39,4 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 
 ## Relations
 
-[[borrowing]], [[lifetime-elision]], [[generics]], [[trait-bounds]], [[ownership]] (the owner's scope bounds every borrow).
+[[borrowing]], [[dangling-references]], [[lifetime-elision]], [[generics]], [[trait-bounds]], [[ownership]] (the owner's scope bounds every borrow).
