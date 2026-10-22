@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch04-understanding-ownership.md]
+sources: [raw/ch04-understanding-ownership.md, raw/ch10-generics-traits-lifetimes.md]
 updated: 2026-10-22
 ---
 # Borrowing and references
@@ -21,7 +21,7 @@ Details:
 
 ## Dangling references
 
-The compiler guarantees data does not go out of scope before references to it. Returning `&s` for a local `s` fails (E0106 missing lifetime specifier, E0515). Fix: return the owned `String`. The message mentions lifetimes, which the chapter defers to ch10. (src: [[ch04-understanding-ownership]])
+The compiler guarantees data does not go out of scope before references to it. Returning `&s` for a local `s` fails (E0106 missing lifetime specifier, E0515). Fix: return the owned `String`. The message mentions lifetimes, which ch10 explains: the borrow checker rejects a reference whose referent has a shorter lifetime (E0597 "does not live long enough"), and a function returning a reference must tie it to a parameter via annotations; see [[lifetimes]] and [[lifetime-elision]]. (src: [[ch04-understanding-ownership]], [[ch10-generics-traits-lifetimes]])
 
 ## Example
 
@@ -40,4 +40,4 @@ fn change(t: &mut String) { t.push_str(", world"); }
 
 ## Relations
 
-[[ownership]], [[slices]] (a slice is a kind of reference), [[move-copy-clone]]. Dereference operator `*` is the inverse of `&` (details in later chapters).
+[[ownership]], [[lifetimes]], [[slices]] (a slice is a kind of reference), [[move-copy-clone]]. Dereference operator `*` is the inverse of `&` (details in later chapters).

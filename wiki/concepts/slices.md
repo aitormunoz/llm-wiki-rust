@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch04-understanding-ownership.md]
+sources: [raw/ch04-understanding-ownership.md, raw/ch10-generics-traits-lifetimes.md]
 updated: 2026-10-22
 ---
 # Slices
@@ -28,6 +28,8 @@ fn first_word(s: &str) -> &str {
 }
 ```
 
+`first_word` needs no lifetime annotations because of [[lifetime-elision]]: its single input lifetime is assigned to the returned `&str`. (src: [[ch10-generics-traits-lifetimes]])
+
 ## Common mistakes
 
 - Clearing/mutating the owner while a slice is still used.
@@ -35,4 +37,4 @@ fn first_word(s: &str) -> &str {
 
 ## Relations
 
-[[borrowing]], [[ownership]].
+[[borrowing]], [[ownership]], [[lifetime-elision]].
