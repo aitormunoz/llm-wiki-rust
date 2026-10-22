@@ -35,7 +35,7 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 - Reaching for `'static` to silence an error.
 
 > [!note] Scope vs last use
-> Chapter 10 explains lifetimes with block scopes (the diagrams `'a`, `'b`), while [[borrowing]] (ch4) notes that a reference's scope ends at its last use. Not a contradiction: the lexical picture is the teaching model, last use is how the borrow checker actually shortens it. Ch10 does not state the last-use refinement itself.
+> Chapter 10 explains lifetimes with block scopes (the diagrams `'a`, `'b`), while [[borrowing]] (ch4) notes that a reference's scope ends at its last use. Not a contradiction: the lexical picture is the teaching model, last use is how the borrow checker actually shortens it. Ch10 does not state the last-use refinement itself. The 2018-era ch4 snapshot still uses the purely lexical model (borrows end at the closing brace), see the conflict in [[borrowing]] (src: [[2018-ch04-02-references-and-borrowing]]).
 
 ## Relations
 

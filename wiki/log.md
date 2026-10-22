@@ -15,3 +15,7 @@
 ## [2026-10-22] ingest | Chapter 16: Fearless Concurrency
 - Created: [[ch16-fearless-concurrency]], [[threads]], [[channels]], [[mutex]], [[arc]], [[send-and-sync]]
 - Updated: [[rc]], [[refcell-and-interior-mutability]], [[ownership]], [[borrowing]], [[drop]], [[smart-pointers]], [[move-copy-clone]], [[traits]], [[reference-cycles-and-weak]], [[index]], [[log]]
+
+## [2026-10-22] ingest | References and Borrowing (2018 edition snapshot)
+- Created: [[2018-ch04-02-references-and-borrowing]]
+- Updated: [[borrowing]] (conflict callout: lexical vs last-use scope), [[lifetimes]], [[ch04-understanding-ownership]], [[index]], [[log]]

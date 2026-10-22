@@ -24,3 +24,5 @@ Chapter 4 of The Rust Programming Language. It explains how Rust guarantees memo
 ## Concept pages
 
 [[ownership]], [[stack-and-heap]], [[move-copy-clone]], [[borrowing]], [[slices]]
+
+An older snapshot of section 2 exists as [[2018-ch04-02-references-and-borrowing]] (lexical borrow scopes, outdated).

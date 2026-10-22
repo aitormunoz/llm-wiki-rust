@@ -3,6 +3,7 @@
 ## Sources
 
 - [[ch04-understanding-ownership]] — TRPL ch4: ownership, borrowing and slices.
+- [[2018-ch04-02-references-and-borrowing]] — older (2018) TRPL ch4 references and borrowing section; lexical borrow scopes, superseded.
 - [[ch10-generics-traits-lifetimes]] — TRPL ch10: generics, traits and trait bounds, lifetimes.
 - [[ch15-smart-pointers]] — TRPL ch15: Box, Deref, Drop, Rc, RefCell, reference cycles and Weak.
 - [[ch16-fearless-concurrency]] — TRPL ch16: threads, channels, Mutex, Arc, Send and Sync.
@@ -12,7 +13,7 @@
 - [[ownership]] — the three ownership rules, scope, drop and moving ownership.
 - [[stack-and-heap]] — how the two memory regions differ and why ownership targets the heap.
 - [[move-copy-clone]] — what assignment does: move, `Copy` for stack-only types, explicit `clone`.
-- [[borrowing]] — references, `&` vs `&mut` rules, data races, dangling references.
+- [[borrowing]] — references, `&` vs `&mut` rules, data races, dangling references, old vs current scope rule.
 - [[slices]] — `&str` and `&[T]`, references to contiguous sequences.
 - [[generics]] — type parameters on functions, structs, enums and methods.
 - [[monomorphization]] — how generics compile to concrete code with no runtime cost.
