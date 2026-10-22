@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch04-understanding-ownership.md, raw/ch10-generics-traits-lifetimes.md, raw/ch15-smart-pointers.md]
+sources: [raw/ch04-understanding-ownership.md, raw/ch10-generics-traits-lifetimes.md, raw/ch15-smart-pointers.md, raw/ch16-fearless-concurrency.md]
 updated: 2026-10-22
 ---
 # Borrowing and references
@@ -19,7 +19,7 @@ Details:
 - References are immutable by default; mutation needs `&mut` and a `mut` variable (E0596 otherwise).
 - A reference's scope runs from creation to its last use, not to the end of the block, so a `&mut` is fine after the last use of earlier `&` references. (src: [[ch04-understanding-ownership]])
 - A new inner block can end a `&mut` early to allow another.
-- The one-`&mut` rule prevents data races at compile time: two or more pointers to the same data, at least one writing, with no synchronization. (src: [[ch04-understanding-ownership]])
+- The one-`&mut` rule prevents data races at compile time: two or more pointers to the same data, at least one writing, with no synchronization. (src: [[ch04-understanding-ownership]]) ch16 builds on this: a spawned thread may outlive the borrowed data, so closures passed to `thread::spawn` must `move` what they use (E0373 otherwise), see [[threads]]. (src: [[ch16-fearless-concurrency]])
 - A dropped reference never drops the referent, since it does not own it.
 
 ## Dangling references
@@ -43,4 +43,4 @@ fn change(t: &mut String) { t.push_str(", world"); }
 
 ## Relations
 
-[[ownership]], [[lifetimes]], [[slices]] (a slice is a kind of reference), [[move-copy-clone]]. The dereference operator `*` follows a reference to its value; `assert_eq!(5, y)` with `y: &i32` fails (E0277) while `*y` works. Custom types can support `*` via `Deref`, see [[deref-and-deref-coercion]]. Interior mutability ([[refcell-and-interior-mutability]]) mutates behind an immutable value with runtime-checked borrows. (src: [[ch15-smart-pointers]])
+[[ownership]], [[lifetimes]], [[slices]] (a slice is a kind of reference), [[move-copy-clone]]. The dereference operator `*` follows a reference to its value; `assert_eq!(5, y)` with `y: &i32` fails (E0277) while `*y` works. Custom types can support `*` via `Deref`, see [[deref-and-deref-coercion]]. Cross-thread sharing is done with [[mutex]] and [[arc]] rather than plain references. Interior mutability ([[refcell-and-interior-mutability]]) mutates behind an immutable value with runtime-checked borrows. (src: [[ch15-smart-pointers]])

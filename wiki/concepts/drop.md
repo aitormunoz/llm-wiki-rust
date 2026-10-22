@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch15-smart-pointers.md]
+sources: [raw/ch15-smart-pointers.md, raw/ch16-fearless-concurrency.md]
 updated: 2026-10-22
 ---
 # Drop
@@ -13,7 +13,7 @@ The `Drop` trait lets you run custom code when a value goes out of scope, such a
 - Values drop in reverse order of creation. (src: [[ch15-smart-pointers]])
 - You cannot call `x.drop()` yourself (E0040): it would be called again at scope end, a double free. To drop early, call `std::mem::drop(x)` (in the prelude), which takes ownership. Useful for releasing a lock early.
 - Ownership guarantees `drop` runs exactly once and never on a value still in use.
-- `Rc<T>` decrements its count in its `Drop` impl ([[rc]]); `Box<T>` frees its heap memory in its.
+- `Rc<T>` decrements its count in its `Drop` impl ([[rc]]); `Box<T>` frees its heap memory in its; `MutexGuard` releases the lock in its (so a lock is held until the guard goes out of scope or is dropped, see [[mutex]]). (src: [[ch16-fearless-concurrency]])
 
 ## Example
 
@@ -33,4 +33,4 @@ drop(c); // early cleanup
 
 ## Relations
 
-[[ownership]], [[smart-pointers]], [[deref-and-deref-coercion]], [[move-copy-clone]] (a `Drop` type cannot be `Copy`), [[traits]].
+[[ownership]], [[smart-pointers]], [[deref-and-deref-coercion]], [[mutex]], [[move-copy-clone]] (a `Drop` type cannot be `Copy`), [[traits]].

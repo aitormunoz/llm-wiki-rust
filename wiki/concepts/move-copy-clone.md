@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch04-understanding-ownership.md, raw/ch15-smart-pointers.md]
+sources: [raw/ch04-understanding-ownership.md, raw/ch15-smart-pointers.md, raw/ch16-fearless-concurrency.md]
 updated: 2026-10-22
 ---
 # Move, Copy and Clone
@@ -15,7 +15,7 @@ Design consequence: Rust never automatically deep-copies, so automatic copying i
 
 ## Clone
 
-`s1.clone()` explicitly copies heap data too. A `clone` call signals possibly expensive arbitrary code. (src: [[ch04-understanding-ownership]]) Exception by convention: `Rc::clone(&a)` only increments a reference count and copies no data, so it is cheap; it is written `Rc::clone` rather than `a.clone()` to keep it visually distinct from deep copies. See [[rc]]. (src: [[ch15-smart-pointers]])
+`s1.clone()` explicitly copies heap data too. A `clone` call signals possibly expensive arbitrary code. (src: [[ch04-understanding-ownership]]) Exception by convention: `Rc::clone(&a)` only increments a reference count and copies no data, so it is cheap; it is written `Rc::clone` rather than `a.clone()` to keep it visually distinct from deep copies. See [[rc]]; `Arc::clone` is the same, and `tx.clone()` on a channel transmitter makes another producer ([[arc]], [[channels]]). (src: [[ch15-smart-pointers]], [[ch16-fearless-concurrency]])
 
 ## Copy
 
@@ -32,6 +32,7 @@ let y = x;             // Copy: both valid
 
 - Using `s1` after `let s2 = s1;` (E0382). Fix with `clone()` if the cost is acceptable, or borrow ([[borrowing]]).
 - Passing a `String` to a function and then using it again.
+- Using a value after moving it into a thread closure or sending it down a channel ([[threads]], [[channels]]).
 
 ## Relations
 

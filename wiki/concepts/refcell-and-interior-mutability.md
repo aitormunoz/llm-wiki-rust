@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch15-smart-pointers.md]
+sources: [raw/ch15-smart-pointers.md, raw/ch16-fearless-concurrency.md]
 updated: 2026-10-22
 ---
 # RefCell<T> and interior mutability
@@ -13,7 +13,7 @@ Interior mutability is a pattern that lets you mutate data even when there are i
 - `borrow()` returns `Ref<T>`, `borrow_mut()` returns `RefMut<T>`; both implement `Deref` ([[deref-and-deref-coercion]]). `RefCell` counts active ones: many `Ref` or one `RefMut`, like the compile-time rules.
 - Why: static analysis is conservative and may reject a correct program; `RefCell` is for when you know the code is correct but the compiler cannot prove it.
 - Costs: bugs found at runtime (maybe in production) and a small performance penalty.
-- Single-threaded only (compile error otherwise). `Mutex<T>` is the thread-safe equivalent (ch16).
+- Single-threaded only: `RefCell<T>` is not `Sync` because its runtime borrow tracking is not thread-safe. `Mutex<T>` is the thread-safe equivalent, and `Arc<Mutex<T>>` mirrors `Rc<RefCell<T>>`. (src: [[ch16-fearless-concurrency]], see [[mutex]], [[send-and-sync]])
 - `Rc<RefCell<T>>` gives multiple owners of mutable data: mutate once, all owners see it. (src: [[ch15-smart-pointers]])
 - Typical use: a mock object in tests whose trait method takes `&self` but must record calls.
 
@@ -38,4 +38,4 @@ impl Messenger for MockMessenger {
 
 ## Relations
 
-[[borrowing]], [[rc]], [[smart-pointers]], [[reference-cycles-and-weak]], [[traits]] (the `Messenger` trait is why `&mut self` could not be used).
+[[borrowing]], [[rc]], [[smart-pointers]], [[reference-cycles-and-weak]], [[mutex]] (thread-safe analogue), [[traits]] (the `Messenger` trait is why `&mut self` could not be used).

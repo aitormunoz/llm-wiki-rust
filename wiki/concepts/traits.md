@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch10-generics-traits-lifetimes.md, raw/ch15-smart-pointers.md]
+sources: [raw/ch10-generics-traits-lifetimes.md, raw/ch15-smart-pointers.md, raw/ch16-fearless-concurrency.md]
 updated: 2026-10-22
 ---
 # Traits
@@ -15,6 +15,7 @@ A trait defines functionality a type has and can share with other types: a group
 - **Default implementations:** give a method a body in the trait; implementors keep it with an empty `impl Summary for X {}` or override it with the same syntax. Defaults may call other methods of the trait, even required ones. An overriding implementation cannot call the default.
 - **Blanket implementations:** implement a trait for every type meeting a bound, e.g. `impl<T: Display> ToString for T`, which is why `3.to_string()` works.
 - Standard-library traits that define smart-pointer behavior: `Deref`/`DerefMut` (customize `*`, enable deref coercion) and `Drop` (cleanup at scope end). See [[deref-and-deref-coercion]], [[drop]]. (src: [[ch15-smart-pointers]])
+- `Send` and `Sync` are marker traits with no methods, implemented automatically for types built from `Send`/`Sync` parts; they are the bounds behind `thread::spawn`. See [[send-and-sync]]. (src: [[ch16-fearless-concurrency]])
 - Traits can appear as parameters/returns with `impl Trait`; see [[trait-bounds]].
 
 ## Example

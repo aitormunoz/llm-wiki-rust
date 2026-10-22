@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch15-smart-pointers.md]
+sources: [raw/ch15-smart-pointers.md, raw/ch16-fearless-concurrency.md]
 updated: 2026-10-22
 ---
 # Reference cycles and Weak<T>
@@ -30,6 +30,10 @@ struct Node {
 
 - Making a child's `parent` field an `Rc` (cycle, leak).
 - Using a `Weak` without calling `upgrade` and handling `None`.
+
+## Related hazards
+
+Mutexes have a similar logic-error risk that Rust cannot prevent: deadlocks. See [[mutex]]. (src: [[ch16-fearless-concurrency]])
 
 ## Relations
 

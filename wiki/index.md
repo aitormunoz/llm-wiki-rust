@@ -5,6 +5,7 @@
 - [[ch04-understanding-ownership]] — TRPL ch4: ownership, borrowing and slices.
 - [[ch10-generics-traits-lifetimes]] — TRPL ch10: generics, traits and trait bounds, lifetimes.
 - [[ch15-smart-pointers]] — TRPL ch15: Box, Deref, Drop, Rc, RefCell, reference cycles and Weak.
+- [[ch16-fearless-concurrency]] — TRPL ch16: threads, channels, Mutex, Arc, Send and Sync.
 
 ## Concepts
 
@@ -26,5 +27,10 @@
 - [[rc]] — reference counting for multiple owners (single-threaded), `Rc::clone`, strong count.
 - [[refcell-and-interior-mutability]] — borrow rules checked at runtime, `borrow`/`borrow_mut`, `Rc<RefCell<T>>`.
 - [[reference-cycles-and-weak]] — leaks from `Rc` cycles, `Weak<T>`, `upgrade`, parent/child trees.
+- [[threads]] — `thread::spawn`, `join`, `move` closures, 1:1 model.
+- [[channels]] — `mpsc` message passing, `send`/`recv`, multiple producers.
+- [[mutex]] — `Mutex<T>`, `lock`, `MutexGuard`, deadlocks, `Arc<Mutex<T>>`.
+- [[arc]] — atomic reference counting, the thread-safe `Rc`.
+- [[send-and-sync]] — marker traits that make types thread-safe, auto-derived.
 
 ## Answers

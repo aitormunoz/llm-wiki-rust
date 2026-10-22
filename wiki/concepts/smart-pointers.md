@@ -1,6 +1,6 @@
 ---
 type: concept
-sources: [raw/ch15-smart-pointers.md]
+sources: [raw/ch15-smart-pointers.md, raw/ch16-fearless-concurrency.md]
 updated: 2026-10-22
 ---
 # Smart pointers
@@ -10,7 +10,7 @@ A pointer is a variable holding a memory address. A reference (`&`) is the most 
 ## Rules
 
 - Usually implemented as a struct that implements [[deref-and-deref-coercion]] (behave like a reference) and [[drop]] (custom cleanup at end of scope). (src: [[ch15-smart-pointers]])
-- Standard library examples: [[box]] (heap allocation), [[rc]] (multiple owners), `Ref<T>`/`RefMut<T>` returned by `RefCell<T>` ([[refcell-and-interior-mutability]]), `Weak<T>` ([[reference-cycles-and-weak]]). `String` also implements `Deref` (to `&str`).
+- Standard library examples: [[box]] (heap allocation), [[rc]] (multiple owners), `Ref<T>`/`RefMut<T>` returned by `RefCell<T>` ([[refcell-and-interior-mutability]]), `Weak<T>` ([[reference-cycles-and-weak]]), and for threads [[arc]] and `MutexGuard` from [[mutex]] (src: [[ch16-fearless-concurrency]]). `String` also implements `Deref` (to `&str`).
 - Libraries can define their own.
 
 ## Choosing one
@@ -21,6 +21,8 @@ A pointer is a variable holding a memory address. A reference (`&`) is the most 
 | Borrows checked | compile time (mut or immut) | compile time (immut only) | runtime (mut or immut) |
 
 (src: [[ch15-smart-pointers]])
+
+Thread-safe counterparts: `Rc<T>` -> [[arc]], `RefCell<T>` -> [[mutex]]; `Rc` and `RefCell` are not `Send`/`Sync` ([[send-and-sync]]). (src: [[ch16-fearless-concurrency]])
 
 ## Relations
 
