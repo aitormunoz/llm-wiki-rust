@@ -19,3 +19,7 @@
 ## [2026-10-22] ingest | References and Borrowing (2018 edition snapshot)
 - Created: [[2018-ch04-02-references-and-borrowing]]
 - Updated: [[borrowing]] (conflict callout: lexical vs last-use scope), [[lifetimes]], [[ch04-understanding-ownership]], [[index]], [[log]]
+
+## [2026-10-22] lint | 6 issues
+- High: 1 stale claim (`'static` suggestion attributed only to older compiler output). Medium: 3 (truncated sentence in [[drop]], missing raw source in [[lifetimes]] frontmatter, missing concept pages). Low: 2 (uncited claims, ungrounded inference in [[borrowing]]).
+- No broken wikilinks, no orphan pages. Report only, no pages changed.
