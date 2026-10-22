@@ -37,3 +37,5 @@
 - [[send-and-sync]] — marker traits that make types thread-safe, auto-derived.
 
 ## Answers
+
+- [[rc-vs-arc-and-refcell-vs-mutex]] — when to use Rc vs Arc and RefCell vs Mutex, and why not always the thread-safe one.

@@ -41,4 +41,4 @@ for h in handles { h.join().unwrap(); }
 
 ## Relations
 
-[[arc]], [[send-and-sync]] (`Mutex<T>` is `Sync`), [[threads]], [[channels]], [[smart-pointers]].
+[[arc]], [[send-and-sync]] (`Mutex<T>` is `Sync`), [[threads]], [[channels]], [[smart-pointers]]. Comparison: [[rc-vs-arc-and-refcell-vs-mutex]].

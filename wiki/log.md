@@ -29,3 +29,8 @@
 - Medium: restored truncated sentence in [[drop]]; added missing raw sources to [[lifetimes]] frontmatter; created [[dangling-references]] and [[data-races]] (explained by the sources). Closures, trait objects and deadlocks not created: sources only forward-reference or mention them.
 - Updated: [[borrowing]], [[lifetimes]], [[drop]], [[ownership]], [[2018-ch04-02-references-and-borrowing]], [[index]], [[log]]
 - Skipped: low-severity citation sweep.
+
+## [2026-10-22] query | Rc vs Arc and RefCell vs Mutex: when to use which, why not Arc everywhere?
+- Created: [[rc-vs-arc-and-refcell-vs-mutex]]
+- Updated: [[rc]], [[arc]], [[refcell-and-interior-mutability]], [[mutex]], [[index]], [[log]]
+- Answered from the wiki; raw/ not needed.

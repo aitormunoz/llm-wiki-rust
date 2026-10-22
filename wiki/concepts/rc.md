@@ -37,4 +37,4 @@ let c = Cons(4, Rc::clone(&a)); // count = 3
 
 ## Relations
 
-[[ownership]] (relaxes the single-owner rule), [[move-copy-clone]], [[borrowing]], [[smart-pointers]], [[arc]] (atomic counterpart), [[send-and-sync]].
+[[ownership]] (relaxes the single-owner rule), [[move-copy-clone]], [[borrowing]], [[smart-pointers]], [[arc]] (atomic counterpart), [[send-and-sync]]. Comparison: [[rc-vs-arc-and-refcell-vs-mutex]].

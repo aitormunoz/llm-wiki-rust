@@ -38,4 +38,4 @@ impl Messenger for MockMessenger {
 
 ## Relations
 
-[[borrowing]], [[rc]], [[smart-pointers]], [[reference-cycles-and-weak]], [[mutex]] (thread-safe analogue), [[traits]] (the `Messenger` trait is why `&mut self` could not be used).
+[[borrowing]], [[rc]], [[smart-pointers]], [[reference-cycles-and-weak]], [[mutex]] (thread-safe analogue), [[traits]] (the `Messenger` trait is why `&mut self` could not be used). Comparison: [[rc-vs-arc-and-refcell-vs-mutex]].

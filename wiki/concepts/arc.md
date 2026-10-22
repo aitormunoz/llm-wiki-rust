@@ -29,4 +29,4 @@ let b = Arc::clone(&a); // send b to another thread
 
 ## Relations
 
-[[rc]], [[mutex]], [[smart-pointers]], [[ownership]] (multiple ownership across threads), [[threads]].
+[[rc]], [[mutex]], [[smart-pointers]], [[ownership]] (multiple ownership across threads), [[threads]]. Comparison: [[rc-vs-arc-and-refcell-vs-mutex]].
